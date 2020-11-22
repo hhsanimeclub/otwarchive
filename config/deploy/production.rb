@@ -32,6 +32,14 @@ server 'archive.becausetrigger.ga', user: 'deploy', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
+desc "Re-caches the site skins"
+task :reload_site_skins do
+  find_servers(roles: :web).each do |server|
+    puts "Caching skins on #{server.host}"
+    run "cd ~/otwarchive/current ; bundle exec rake skins:cache_all_site_skins  RAILS_ENV=production"
+    sleep (10)
+end
+
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
