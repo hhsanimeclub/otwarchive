@@ -38,6 +38,7 @@ task :reload_site_skins do
     puts "Caching skins on #{server.host}"
     run "cd ~/otwarchive/current ; bundle exec rake skins:cache_all_site_skins  RAILS_ENV=production"
     sleep (10)
+  end
 end
 
 # Custom SSH Options
