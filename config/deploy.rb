@@ -1,9 +1,5 @@
-require './config/boot'
-
 set :application, "otwarchive"
 set :repo_url, "git@github.com:hhsanimeclub/otwarchive.git"
-
-require 'bundler/capistrano'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
