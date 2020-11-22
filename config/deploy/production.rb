@@ -32,21 +32,6 @@ server 'archive.becausetrigger.ga', user: 'deploy', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-namespace :production_only do
-    desc "Set up production robots.txt file"
-    task :update_robots, roles: :web do
-      run "cp #{release_path}/public/robots.public.txt #{release_path}/public/robots.txt"
-    end
-  end
-  
-  #before "deploy:update_code", "production_only:git_in_home"
-  #after "deploy:update_code", "production_only:update_public", "production_only:update_tag_feeds", "production_only:update_configs"
-  
-  #before "deploy:migrate", "production_only:backup_db"
-  
-  after "deploy:update_code", "production_only:update_robots"
-
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
