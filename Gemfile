@@ -172,8 +172,10 @@ group :test, :development, :staging do
 end
 
 # Deploy with Capistrano
-gem 'capistrano-gitflow_version', '>=0.0.3', require: false
-gem 'rvm-capistrano'
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 # Use unicorn as the web server
 gem 'unicorn', '~> 5.5', require: false
